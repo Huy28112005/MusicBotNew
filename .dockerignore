@@ -3,6 +3,4 @@ npm-debug.log
 .env
 .git
 .gitignore
-lavalink/Lavalink.jar
-lavalink/plugins
 *.md
