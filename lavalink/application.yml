@@ -1,16 +1,22 @@
 server:
-  port: ${PORT:2333}
+  port: 2333
+  address: 0.0.0.0
 lavalink:
   server:
-    password: "${LAVALINK_PASSWORD:youshallnotpass}"
+    password: "youshallnotpass"
     sources:
-      youtube: false
+      youtube: false        # Tắt cái cũ để dùng plugin mới
+      bandcamp: true
       soundcloud: true
-  plugins:
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.1"
-      snapshot: false
-    - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.8.3"
-      snapshot: false
+      twitch: true
+      vimeo: true
+      http: true
+      local: false
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    opusEncodingQuality: 10
+    resamplingQuality: HIGH
+
 plugins:
   youtube:
     enabled: true
@@ -23,6 +29,9 @@ plugins:
       - WEB
       - TVHTML5
       - WEBEMBEDDED
+    # Nếu bạn có poToken hãy điền vào đây, nếu không hãy dùng SoundCloud fallback
+    # poToken: ""
+    # visitorData: ""
   lavasrc:
     providers:
       - "ytsearch:\"%ISRC%\""
