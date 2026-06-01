@@ -5,7 +5,7 @@ lavalink:
   server:
     password: "youshallnotpass"
     sources:
-      youtube: false        # Tắt cái cũ để dùng plugin mới
+      youtube: false
       bandcamp: true
       soundcloud: true
       twitch: true
@@ -13,7 +13,7 @@ lavalink:
       http: true
       local: false
     bufferDurationMs: 400
-    frameBufferDurationMs: 5000
+    frameBufferDurationMs: 3000
     opusEncodingQuality: 10
     resamplingQuality: HIGH
 
@@ -25,20 +25,18 @@ plugins:
     allowDirectPlaylistIds: true
     clients:
       - TVHTML5
+      - WEBEMBEDDED
       - ANDROID_TEST
       - MUSIC
-      - ANDROID_VR
-      - WEB
-      - WEBEMBEDDED
-    # Nếu bạn có poToken hãy điền vào đây, nếu không hãy dùng SoundCloud fallback
-    # poToken: ""
-    # visitorData: ""
   lavasrc:
     providers:
       - "ytsearch:\"%ISRC%\""
       - "ytsearch:%QUERY%"
+      - "scsearch:%QUERY%" # Thêm fallback sang SoundCloud nếu YT lỗi
     sources:
-      spotify: false
+      spotify: true
+      applemusic: false
     spotify:
       clientId: "${SPOTIFY_CLIENT_ID}"
       clientSecret: "${SPOTIFY_CLIENT_SECRET}"
+      countryCode: "VN" # Ưu tiên khu vực Việt Nam
