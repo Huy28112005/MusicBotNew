@@ -24,10 +24,11 @@ plugins:
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
     clients:
+      - TVHTML5
+      - ANDROID_TEST
       - MUSIC
       - ANDROID_VR
       - WEB
-      - TVHTML5
       - WEBEMBEDDED
     # Nếu bạn có poToken hãy điền vào đây, nếu không hãy dùng SoundCloud fallback
     # poToken: ""
